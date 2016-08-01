@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" 
+xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+    <head>
+        <title>Spring Security Example</title>
+    </head>
+    <body>
+        <h1>Welcome! This is MVC example</h1>
+      
+      	<p th:text="${question.title}"> aaaa </p>
+        <input type="text" name="title" id="title"  th:value="${question.title}"> </input>
+    	
+    	<div sec:authorize="hasRole('ROLE_ADMIN')">
+		  This will only be displayed if authenticated user has role ROLE_ADMIN.
+		  example 1
+		</div>
+		
+		<div sec:authorize="hasRole('ROLE_USER')">
+		  This is role user
+		  example 2 
+		</div>
+		
+		<div sec:authorize="hasRole('USER')">
+		  This is role user... 
+		  example 3
+		</div>
+
+    
+    </body>
+</html>
